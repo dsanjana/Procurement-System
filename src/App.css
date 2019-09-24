@@ -1,0 +1,273 @@
+.App {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgb(37, 39, 46);
+}
+
+.LoginPage {
+  background-image: "url(" + BackImage + ")";
+  background-position: "center";
+  background-size: "cover";
+  background-repeat: "no-repeat";
+}
+
+.SignUpPage {
+  background-image: "url(" + BackImage + ")";
+  background-position: "center";
+  background-size: "cover";
+  background-repeat: "no-repeat";
+}
+
+.Main1 {
+  background-image: "url(" + BackImage + ")";
+  background-position: "center";
+  background-size: "cover";
+  background-repeat: "no-repeat";
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Level 1 header  */
+
+.level1 {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  width: 100%;
+  height: 150px;
+
+  margin-bottom: 0px;
+  padding: 0px;
+  color: black;
+}
+
+/* level1 > left block*/
+.l1left {
+  flex: 0 0 20%;
+  border: solid 0px;
+  text-align: center;
+  border: 3px solid rgb(43, 38, 38);
+  background-color: rgba(1, 93, 241, 0.25);
+}
+/* level1 > center block*/
+
+.l1center {
+  flex: 0 0 60%;
+
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid rgb(43, 38, 38);
+}
+
+/* level1 > center > top & bottom */
+
+.l1Top {
+  height: 58%;
+  background-color: rgba(1, 93, 241, 0.25);
+}
+.l1Bottom {
+  background-color: rgba(1, 93, 241, 0.25);
+}
+.l1rightBottom {
+  background-color: rgba(1, 93, 241, 0.25);
+}
+
+/*level1 > right block*/
+.l1right {
+  flex: 0 0 20%;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid rgb(43, 38, 38);
+}
+
+.l1rightTop {
+  height: 97%;
+  background-color: rgba(1, 93, 241, 0.25);
+  border: 1px solid rgb(43, 38, 38);
+}
+
+.lright1Bottom {
+  background-color: rgba(1, 93, 241, 0.25);
+  border: 1px solid rgb(43, 38, 38);
+}
+
+/*level 2*/
+
+.level2 {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  min-height: 600px;
+}
+
+/* level 2 side nav */
+.main-nav {
+  flex-basis: 20%;
+  border: solid;
+  padding: 0px;
+  margin: 0px;
+  background-color: rgba(1, 93, 241, 0.25);
+}
+
+/* level2 > main body */
+
+/*imported components */
+.formContainer {
+  color: black;
+  width: 50%;
+  margin: 0 auto;
+  width: 400px;
+}
+
+li.navbar-item2 {
+  position: relative;
+  display: block;
+  border: 1px solid rgb(43, 38, 38);
+  margin-left: 1px;
+  margin-bottom: 1px;
+  background-color: rgba(1, 93, 241, 0.25);
+  text-align: center;
+  color: black;
+}
+
+/*without hovering*/
+li a {
+  color: red;
+  border: 1px solid rgb(43, 38, 38);
+  background-color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+/*level 1 right top  navigation*/
+.nav-link {
+  width: 100%;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  width: 100%;
+  color: black;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*level 1 center navigation*/
+.nav-link1 {
+  border: 1px solid rgb(43, 38, 38);
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  padding-top: 10px;
+  text-align: left;
+}
+
+/* level 2 side nav*/
+a:active {
+  background-color: rgba(144, 200, 238, 0.342);
+  color: white;
+  text-decoration: none;
+}
+
+/* level 2 main body */
+.main-body {
+  flex: 0 0 75%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.level3 {
+  text-decoration: none;
+  width: 100%;
+  height: 15%;
+  background-color: steelblue;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*side menu drop button*/
+.dropbtn {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgb(43, 38, 38);
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border: 1px solid rgb(43, 38, 38);
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  width: 100%;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  height: 60px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: rgba(144, 200, 238, 0.342);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
