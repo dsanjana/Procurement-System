@@ -31,7 +31,10 @@ export default class Create extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/supplier")
+      .get("http://localhost:4000/supplier",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({ suppliers: response.data });
       })
@@ -103,7 +106,10 @@ export default class Create extends Component {
     };
 
     axios
-      .get("http://localhost:4000/business/validate/" + this.state.pid)
+      .get("http://localhost:4000/business/validate/" + this.state.pid,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data.pname);
 
@@ -123,7 +129,10 @@ export default class Create extends Component {
       .catch(function(error) {
         console.log(error);
         axios
-          .post("http://localhost:4000/business/add", obj)
+          .post("http://localhost:4000/business/add", obj,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        })
           .then(res => console.log(res.data));
       });
 

@@ -74,18 +74,27 @@ export default class SupplierCreate extends Component {
     };
 
     axios
-      .post("http://localhost:4000/supplier/add", obj)
+      .post("http://localhost:4000/supplier/add", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(res => console.log(res.data));
 
     axios
-      .post("http://localhost:4000/supplier/send", obj)
+      .post("http://localhost:4000/supplier/send", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(res => {})
       .catch(function(error) {
         console.log(error);
       });
 
     axios
-      .post("http://localhost:4000/supplier/send1", obj)
+      .post("http://localhost:4000/supplier/send1", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(res => {})
       .catch(function(error) {
         console.log(error);

@@ -31,7 +31,10 @@ export default class ordereditems extends Component {
     };
     axios
       .get(
-        "http://localhost:4000/business/invoiceid/" + this.props.match.params.id
+        "http://localhost:4000/business/invoiceid/" + this.props.match.params.id,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      }
       )
       .then(response => {
         console.log(response.data);
@@ -69,7 +72,10 @@ export default class ordereditems extends Component {
         "http://localhost:4000/business/statusupdate/" +
           this.props.match.params.id +
           "/" +
-          this.state.cstatus
+          this.state.cstatus,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        }
       )
       .then(res => {
         console.log(res.data);

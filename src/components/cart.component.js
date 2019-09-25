@@ -35,7 +35,10 @@ export default class cart extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:4000/business/cart")
+      .get("http://localhost:4000/business/cart",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           business: response.data
@@ -45,7 +48,10 @@ export default class cart extends Component {
         console.log(error);
       });
 
-    axios.get("http://localhost:4000/business/deleteitems").then(res => {
+    axios.get("http://localhost:4000/business/deleteitems",{headers: {
+      "Authorization" : "Bearer "+sessionStorage.getItem("token")
+    }
+  }).then(res => {
       console.log(res.data);
     });
   }
@@ -54,12 +60,18 @@ export default class cart extends Component {
     {
       const gid = e.target.id;
       axios
-        .get("http://localhost:4000/business/cartdelete/" + gid)
+        .get("http://localhost:4000/business/cartdelete/" + gid,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(console.log("Deleted"))
         .catch(err => console.log(err));
 
       axios
-        .get("http://localhost:4000/business/cart")
+        .get("http://localhost:4000/business/cart",{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(response => {
           this.setState({
             business: response.data
@@ -85,7 +97,10 @@ export default class cart extends Component {
 
   onsearchsubmit(e) {
     axios
-      .get("http://localhost:4000/business/cartsearch/" + this.state.search)
+      .get("http://localhost:4000/business/cartsearch/" + this.state.search,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           business: response.data
@@ -107,7 +122,10 @@ export default class cart extends Component {
 
   onorder(e) {
     axios
-      .get("http://localhost:4000/business/items")
+      .get("http://localhost:4000/business/items",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data);
         this.setState(
@@ -136,7 +154,10 @@ export default class cart extends Component {
     e.preventDefault();
 
     axios
-      .get("http://localhost:4000/business/cartsearch_id/" + e.target.id)
+      .get("http://localhost:4000/business/cartsearch_id/" + e.target.id,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         //alert(this.props.match.params.id)
 
@@ -151,7 +172,10 @@ export default class cart extends Component {
         };
 
         axios
-          .post("http://localhost:4000/business/orderingitems", obj1)
+          .post("http://localhost:4000/business/orderingitems", obj1,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        })
           .then(res => {
             console.log(res.data);
           })

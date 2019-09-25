@@ -34,7 +34,10 @@ export default class Edit extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/business/items")
+      .get("http://localhost:4000/business/items",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data);
         this.setState({
@@ -103,7 +106,10 @@ export default class Edit extends Component {
         supplier: mobj.supplier
       };
 
-      axios.post("http://localhost:4000/business/payment", obj).then(res => {
+      axios.post("http://localhost:4000/business/payment", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    }).then(res => {
         console.log(res.data);
 
         //alert("Order Has been sent to the senior manager");

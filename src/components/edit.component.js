@@ -30,7 +30,10 @@ export default class Create extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/supplier")
+      .get("http://localhost:4000/supplier",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({ suppliers: response.data });
       })
@@ -39,7 +42,10 @@ export default class Create extends Component {
       });
 
     axios
-      .get("http://localhost:4000/business/edit/" + this.props.match.params.id)
+      .get("http://localhost:4000/business/edit/" + this.props.match.params.id,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data);
 
@@ -124,7 +130,10 @@ export default class Create extends Component {
     axios
       .post(
         "http://localhost:4000/business/update/" + this.props.match.params.id,
-        obj
+        obj,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      }
       )
       .then(res => console.log(res.data));
 

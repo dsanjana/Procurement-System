@@ -18,7 +18,10 @@ export default class drafts extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/business/drafts")
+      .get("http://localhost:4000/business/drafts",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data);
 
@@ -54,12 +57,18 @@ export default class drafts extends Component {
   delete(e) {
     const gid = e.target.id;
     axios
-      .get("http://localhost:4000/business/draftdelete/" + gid)
+      .get("http://localhost:4000/business/draftdelete/" + gid,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(console.log("Deleted"))
       .catch(err => console.log(err));
 
     axios
-      .get("http://localhost:4000/business/drafts")
+      .get("http://localhost:4000/business/drafts",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data);
         this.setState({

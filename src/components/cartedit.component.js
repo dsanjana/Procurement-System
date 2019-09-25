@@ -25,7 +25,10 @@ export default class productview extends Component {
     axios
       .get(
         "http://localhost:4000/business/cartsearch_id/" +
-          this.props.match.params.id
+          this.props.match.params.id,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        }
       )
       .then(response => {
         console.log(response.data.pid);
@@ -64,7 +67,10 @@ export default class productview extends Component {
       .post(
         "http://localhost:4000/business/cartupdate/" +
           this.props.match.params.id,
-        obj
+        obj,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      }
       )
       .then(res => console.log(res.data))
       .catch(err => {

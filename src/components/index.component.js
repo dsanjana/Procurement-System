@@ -20,7 +20,10 @@ export default class Index extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:4000/business")
+      .get("http://localhost:4000/business",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           business: response.data
@@ -35,12 +38,18 @@ export default class Index extends Component {
     {
       const gid = e.target.id;
       axios
-        .get("http://localhost:4000/business/delete/" + gid)
+        .get("http://localhost:4000/business/delete/" + gid,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(console.log("Deleted"))
         .catch(err => console.log(err));
 
       axios
-        .get("http://localhost:4000/business")
+        .get("http://localhost:4000/business",{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(response => {
           this.setState({
             business: response.data
@@ -60,7 +69,10 @@ export default class Index extends Component {
     // e.preventDefault();
 
     axios
-      .get("http://localhost:4000/supplier/supplier/" + supplier)
+      .get("http://localhost:4000/supplier/supplier/" + supplier,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(res => {
         const obj = {
           supplier: supplier,
@@ -72,7 +84,10 @@ export default class Index extends Component {
         axios
           .post(
             "http://localhost:4000/supplier/sendbid/" + res.data.supplierEmail,
-            obj
+            obj,{headers: {
+              "Authorization" : "Bearer "+sessionStorage.getItem("token")
+            }
+          }
           )
           .then(res => {})
           .catch(function(error) {
@@ -92,7 +107,10 @@ export default class Index extends Component {
 
   onsearchsubmit(e) {
     axios
-      .get("http://localhost:4000/business/search/" + this.state.search)
+      .get("http://localhost:4000/business/search/" + this.state.search,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           business: response.data

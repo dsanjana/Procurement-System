@@ -49,13 +49,18 @@ export default class Login extends Component {
       .post("http://localhost:4000/login/loginUser", obj)
       .then(res => {
         if (!res.data.message) {
-          //   sessionStorage.setItem("userId", res.data.userId);
-          //   sessionStorage.setItem("token", res.data.token);
-          //   sessionStorage.setItem("userRole", res.data.typeOfEmp)
-          //   sessionStorage.setItem("userName", res.data.name)
-          //   sessionStorage.setItem("idNumber", res.data.idNumber)
-          //   sessionStorage.setItem("email", res.data.email)
-          alert("likujybhgfd");
+            sessionStorage.setItem("userId", res.data.userId);
+            sessionStorage.setItem("token", res.data.token);
+            sessionStorage.setItem("userRole", res.data.typeOfEmp)
+            sessionStorage.setItem("userName", res.data.name)
+            sessionStorage.setItem("idNumber", res.data.idNumber)
+            sessionStorage.setItem("email", res.data.email)
+          alert(sessionStorage.getItem("token"));
+          alert(sessionStorage.getItem("userId"));
+          alert(sessionStorage.getItem("userRole"));
+          alert(sessionStorage.getItem("userName"));
+          alert(sessionStorage.getItem("idNumber"));
+          alert(sessionStorage.getItem("email"));
 
           this.props.history.push("/home");
         } else {

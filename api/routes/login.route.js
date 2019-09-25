@@ -26,10 +26,10 @@ loginRoute.route('/loginUser').post(function (req, res) {
                 return res.status(500).json({ message: "Password is incorrect" })
                 //throw new Error("awdakjwdgkajwd")
             }
-            const token = jwt.sign({ userId: userToken.id, email: userToken.email, typeOfEmp: userToken.typeOfEmp, name: userToken.lecName, idNumber: userToken.lecId }, 'somesupersecretkey', {
+            const token = jwt.sign({ userId: userToken.id, email: userToken.employeeEmail, typeOfEmp: userToken.employeedescription, name: userToken.employeeName, idNumber: userToken.employeeId }, 'somesupersecretkey', {
                 expiresIn: '1h'
             });
-            return res.send({ userId: userToken.id, email: userToken.email, typeOfEmp: userToken.typeOfEmp, name: userToken.lecName, idNumber: userToken.lecId, token: token, tokenExpiration: 1 })
+            return res.send({ userId: userToken.id, email: userToken.employeeEmail, typeOfEmp: userToken.employeedescription, name: userToken.employeeName, idNumber: userToken.employeeId, token: token, tokenExpiration: 1 })
         }).catch(err => {
 
             //throw new Error("awdakjwdgkajwd")

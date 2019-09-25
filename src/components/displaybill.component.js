@@ -23,7 +23,10 @@ export default class Edit extends Component {
     if (this.props.match.params.id5 > 5) {
       axios
         .get(
-          "http://localhost:4000/business/drafts/" + this.props.match.params.id5
+          "http://localhost:4000/business/drafts/" + this.props.match.params.id5,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        }
         )
 
         .then(response => {
@@ -31,7 +34,10 @@ export default class Edit extends Component {
           axios
             .get(
               "http://localhost:4000/business/draftdelete/" +
-                this.props.match.params.id5
+                this.props.match.params.id5,{headers: {
+                  "Authorization" : "Bearer "+sessionStorage.getItem("token")
+                }
+              }
             )
             .then(console.log("Deleted"))
             .catch(err => console.log(err));
@@ -44,11 +50,17 @@ export default class Edit extends Component {
         });
     } else {
       axios
-        .get("http://localhost:4000/business/items")
+        .get("http://localhost:4000/business/items",{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(response => {
           console.log(response.data);
 
-          axios.get("http://localhost:4000/business/deleteitems").then(res => {
+          axios.get("http://localhost:4000/business/deleteitems",{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        }).then(res => {
             console.log(res.data);
           });
           this.setState({

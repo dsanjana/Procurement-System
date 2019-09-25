@@ -86,11 +86,17 @@ export default class EmployeeCreate extends Component {
     };
 
     axios
-      .post("http://localhost:4000/employee/add", obj)
+      .post("http://localhost:4000/employee/add", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(res => console.log(res.data));
 
     axios
-      .post("http://localhost:4000/employee/send", obj)
+      .post("http://localhost:4000/employee/send", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(res => {})
       .catch(function(error) {
         console.log(error);

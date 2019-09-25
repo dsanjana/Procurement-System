@@ -9,7 +9,10 @@ export default class SupplierIndex extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:4000/supplier")
+      .get("http://localhost:4000/supplier",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({ suppliers: response.data });
       })

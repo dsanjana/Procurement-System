@@ -12,7 +12,10 @@ class EmployeeTableRow extends Component {
 }
 
 delete() {
-    axios.get('http://localhost:4000/employee/delete/'+this.props.obj._id)
+    axios.get('http://localhost:4000/employee/delete/'+this.props.obj._id,{headers: {
+      "Authorization" : "Bearer "+sessionStorage.getItem("token")
+    }
+  })
         .then(console.log('Deleted'))
         .catch(err => console.log(err))
 }

@@ -27,7 +27,10 @@ export default class history extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/supplier")
+      .get("http://localhost:4000/supplier",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({ suppliers: response.data });
       })
@@ -36,7 +39,10 @@ export default class history extends Component {
       });
 
     axios
-      .get("http://localhost:4000/business/invoice")
+      .get("http://localhost:4000/business/invoice",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data);
         this.setState({
@@ -66,10 +72,16 @@ export default class history extends Component {
 
   ondelete(e) {
     axios
-      .get("http://localhost:4000/business/pdelete/" + e.target.id)
+      .get("http://localhost:4000/business/pdelete/" + e.target.id,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         axios
-          .get("http://localhost:4000/business/invoice")
+          .get("http://localhost:4000/business/invoice",{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        })
           .then(response => {
             console.log(response.data);
             this.setState({
@@ -87,7 +99,10 @@ export default class history extends Component {
 
   onsearchsubmit(e) {
     axios
-      .get("http://localhost:4000/business/invoice/" + this.state.search)
+      .get("http://localhost:4000/business/invoice/" + this.state.search,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           orders: response.data

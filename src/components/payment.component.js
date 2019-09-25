@@ -36,7 +36,10 @@ export default class Edit extends Component {
     if (this.props.match.params.id1 > 5) {
       axios
         .get(
-          "http://localhost:4000/business/drafts/" + this.props.match.params.id1
+          "http://localhost:4000/business/drafts/" + this.props.match.params.id1,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        }
         )
 
         .then(response => {
@@ -50,7 +53,10 @@ export default class Edit extends Component {
         });
     } else {
       axios
-        .get("http://localhost:4000/business/items")
+        .get("http://localhost:4000/business/items",{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(response => {
           console.log(response.data);
           this.setState({
@@ -145,14 +151,20 @@ export default class Edit extends Component {
 
       // alert(mobj.supplier)
       axios
-        .get("http://localhost:4000/supplier/supplier/" + mobj.supplier)
+        .get("http://localhost:4000/supplier/supplier/" + mobj.supplier,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(res => {
           console.log(res.data);
 
           axios
             .post(
               "http://localhost:4000/supplier/sendo/" + res.data.supplierEmail,
-              obj
+              obj,{headers: {
+                "Authorization" : "Bearer "+sessionStorage.getItem("token")
+              }
+            }
             )
             .then(res => {
               alert("" + res.data.supplierEmail + "   " + mobj.pqty);
@@ -164,7 +176,10 @@ export default class Edit extends Component {
           //alert(""+res.data.supplierEmail+ "   " +mobj.pqty);
         });
 
-      axios.post("http://localhost:4000/business/invoice", obj).then(res => {
+      axios.post("http://localhost:4000/business/invoice", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    }).then(res => {
         console.log(res.data);
 
         if (this.props.match.params.id1 > 5) {
@@ -228,7 +243,10 @@ export default class Edit extends Component {
 
       // alert(mobj.supplier)
 
-      axios.post("http://localhost:4000/business/drafts", obj).then(res => {
+      axios.post("http://localhost:4000/business/drafts", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    }).then(res => {
         console.log(res.data);
 
         //alert("Order Has been drafted !");

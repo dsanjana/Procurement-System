@@ -9,7 +9,10 @@ export default class EmployeeIndex extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:4000/employee")
+      .get("http://localhost:4000/employee",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({ employees: response.data });
       })

@@ -25,7 +25,10 @@ export default class productview extends Component {
       supplier: ""
     };
     axios
-      .get("http://localhost:4000/business/edit/" + this.props.match.params.id)
+      .get("http://localhost:4000/business/edit/" + this.props.match.params.id,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data.pid);
         //alert(this.props.match.params.id)
@@ -47,7 +50,10 @@ export default class productview extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:4000/business/deleteitems").then(res => {
+    axios.get("http://localhost:4000/business/deleteitems",{headers: {
+      "Authorization" : "Bearer "+sessionStorage.getItem("token")
+    }
+  }).then(res => {
       console.log(res.data);
     });
   }
@@ -65,7 +71,10 @@ export default class productview extends Component {
     };
 
     axios
-      .post("http://localhost:4000/business/cart", obj)
+      .post("http://localhost:4000/business/cart", obj,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(res => console.log(res.data));
   }
 
@@ -82,7 +91,10 @@ export default class productview extends Component {
     };
 
     axios
-      .post("http://localhost:4000/business/orderingitems", obj1)
+      .post("http://localhost:4000/business/orderingitems", obj1,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(res => {
         console.log(res.data);
 

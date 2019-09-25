@@ -23,7 +23,10 @@ export default class aprrovals extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:4000/business/bills")
+      .get("http://localhost:4000/business/bills",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           approvals: response.data
@@ -33,7 +36,10 @@ export default class aprrovals extends Component {
         console.log(error);
       });
 
-    axios.get("http://localhost:4000/business/deleteitems").then(res => {
+    axios.get("http://localhost:4000/business/deleteitems",{headers: {
+      "Authorization" : "Bearer "+sessionStorage.getItem("token")
+    }
+  }).then(res => {
       console.log(res.data);
     });
   }
@@ -44,12 +50,18 @@ export default class aprrovals extends Component {
 
       alert(gid);
       axios
-        .get("http://localhost:4000/business/deleteitems1/" + gid)
+        .get("http://localhost:4000/business/deleteitems1/" + gid,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(console.log("Deleted"))
         .catch(err => console.log(err));
 
       axios
-        .get("http://localhost:4000/business/bills")
+        .get("http://localhost:4000/business/bills",{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      })
         .then(response => {
           this.setState({
             approvals: response.data
@@ -63,7 +75,10 @@ export default class aprrovals extends Component {
 
   onsearchsubmit(e) {
     axios
-      .get("http://localhost:4000/business/cartsearch/" + this.state.search)
+      .get("http://localhost:4000/business/cartsearch/" + this.state.search,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           business: response.data
@@ -76,7 +91,10 @@ export default class aprrovals extends Component {
 
   onorder() {
     axios
-      .get("http://localhost:4000/business/items")
+      .get("http://localhost:4000/business/items",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         console.log(response.data);
         this.setState(
@@ -104,7 +122,10 @@ export default class aprrovals extends Component {
     e.preventDefault();
 
     axios
-      .get("http://localhost:4000/business/bill/" + e.target.id)
+      .get("http://localhost:4000/business/bill/" + e.target.id,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         const obj1 = {
           pid: response.data.pid,
@@ -119,13 +140,19 @@ export default class aprrovals extends Component {
         //alert(e.target.id)
 
         axios
-          .get("http://localhost:4000/business/deleteitemso/" + x)
+          .get("http://localhost:4000/business/deleteitemso/" + x,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        })
           .then(res => {
             console.log("Deleted");
           });
 
         axios
-          .get("http://localhost:4000/business/bills")
+          .get("http://localhost:4000/business/bills",{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        })
           .then(response => {
             this.setState({
               approvals: response.data
@@ -136,7 +163,10 @@ export default class aprrovals extends Component {
           });
 
         axios
-          .post("http://localhost:4000/business/orderingitems", obj1)
+          .post("http://localhost:4000/business/orderingitems", obj1,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        })
           .then(res => {
             console.log(res.data);
           })

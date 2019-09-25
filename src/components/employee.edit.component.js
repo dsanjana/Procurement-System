@@ -26,7 +26,10 @@ export default class EmployeeEdit extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/employee/edit/" + this.props.match.params.id)
+      .get("http://localhost:4000/employee/edit/" + this.props.match.params.id,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           employeeId: response.data.employeeId,
@@ -93,7 +96,10 @@ export default class EmployeeEdit extends Component {
     axios
       .post(
         "http://localhost:4000/employee/update/" + this.props.match.params.id,
-        obj
+        obj,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      }
       )
       .then(res => console.log(res.data));
 

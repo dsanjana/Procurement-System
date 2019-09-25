@@ -24,7 +24,10 @@ export default class inquiries extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/supplier")
+      .get("http://localhost:4000/supplier",{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({ suppliers: response.data });
       })
@@ -50,7 +53,10 @@ export default class inquiries extends Component {
     axios
       .get(
         "http://localhost:4000/supplier/supplier/" +
-          this.props.match.params.supplier
+          this.props.match.params.supplier,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        }
       )
       .then(res => {
         const obj = {
@@ -61,7 +67,10 @@ export default class inquiries extends Component {
         // alert(""+res.data.supplierEmail+ "   " +this.state.ebody);
 
         axios
-          .post("http://localhost:4000/supplier/sendin", obj)
+          .post("http://localhost:4000/supplier/sendin", obj,{headers: {
+            "Authorization" : "Bearer "+sessionStorage.getItem("token")
+          }
+        })
           .then(res => {})
           .catch(function(error) {
             console.log(error);

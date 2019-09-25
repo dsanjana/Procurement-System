@@ -27,7 +27,10 @@ export default class SupplierEdit extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/supplier/edit/" + this.props.match.params.id)
+      .get("http://localhost:4000/supplier/edit/" + this.props.match.params.id,{headers: {
+        "Authorization" : "Bearer "+sessionStorage.getItem("token")
+      }
+    })
       .then(response => {
         this.setState({
           supplierId: response.data.supplierId,
@@ -94,7 +97,10 @@ export default class SupplierEdit extends Component {
     axios
       .post(
         "http://localhost:4000/supplier/update/" + this.props.match.params.id,
-        obj
+        obj,{headers: {
+          "Authorization" : "Bearer "+sessionStorage.getItem("token")
+        }
+      }
       )
       .then(res => console.log(res.data));
 
