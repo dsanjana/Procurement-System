@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 let Business = new Schema({
   pid: {
     type: String,
-    required:true
+    required:true,
+    unique: true
   },
   pname: {
-    type: String
-    ,
+    type: String,
     required:true
   },
   pbprice: {

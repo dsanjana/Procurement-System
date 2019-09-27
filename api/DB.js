@@ -1,3 +1,3 @@
 module.exports = {
-    DB: 'mongodb://localhost:27017/reactcrud'
+    DB: 'mongodb+srv://admin:admin@clustertest-fyroa.mongodb.net/csse?retryWrites=true&w=majority'
 }

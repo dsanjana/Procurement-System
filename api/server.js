@@ -11,17 +11,23 @@ const employeeRoutes = require("./routes/employee.route");
 const loginRoutes = require("./routes/login.route");
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
-  () => {
-    console.log("Database is connected");
-  },
-  err => {
-    console.log("Can not connect to the database" + err);
-  }
-);
+
+function connect() {
+    return new Promise((resolve, reject) => {
+        mongoose.connect(config.DB, {useNewUrlParser: true}).then((res, err) => {
+            if (err) return reject(err);
+            console.log("Connected to database")
+            resolve();
+        })
+    })
+};
+
+function close() {
+    return mongoose.disconnect();
+}
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use("/login", loginRoutes);
@@ -29,6 +35,11 @@ app.use("/business", businessRoute);
 app.use("/supplier", supplierRoutes);
 app.use("/employee", employeeRoutes);
 
-app.listen(PORT, function() {
-  console.log("Server is running on Port:", PORT);
-});
+connect()
+    .then(() => {
+        app.listen(PORT, function () {
+            console.log("Server is running on Port:", PORT);
+        });
+    })
+
+module.exports = { connect, close, app };

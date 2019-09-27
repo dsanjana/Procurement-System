@@ -23,7 +23,7 @@ businessRoutes.route('/add').post(function (req, res) {
     .then(business => {
       res.status(200).json({'business': 'business in added successfully'});
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(400).send("unable to save to database");
     });
 });
