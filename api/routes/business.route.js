@@ -24,7 +24,7 @@ businessRoutes.route('/add').post(function (req, res) {
       res.status(200).json({'business': 'business in added successfully'});
     })
     .catch((err) => {
-      res.status(400).send("unable to save to database");
+      res.status(400).send(err);
     });
 });
 
@@ -36,7 +36,7 @@ businessRoutes.route('/cart').post(function (req, res) {
             res.status(200).json({'cart': 'cart in added successfully'});
         })
         .catch(err => {
-            res.status(400).send("unable to save to database");
+            res.status(400).send(err);
         });
 });
 // add drafts
@@ -47,7 +47,7 @@ businessRoutes.route('/drafts').post(function (req, res) {
             res.status(200).json({'drafts': 'cart in added successfully'});
         })
         .catch(err => {
-            res.status(400).send("unable to save to database");
+            res.status(400).send(err);
         });
 });
 
