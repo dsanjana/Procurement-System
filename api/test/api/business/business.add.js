@@ -26,4 +26,15 @@ describe('POST /add', ()=>{
             }))
             .catch((err) => done(err))
     })
+
+    it('Fail, business requires pid', (done) => {
+        request(conn.app).post('/business/add')
+            .send({pname: "eaersxg", pbprice: "ghcghc", supplier: "fgdhrt"})
+            .then((res => {
+                const body = res.body;
+                expect(body.errors)
+                done();
+            }))
+            .catch((err) => done(err))
+    })
 })
