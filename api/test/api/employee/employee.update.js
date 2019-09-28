@@ -17,7 +17,7 @@ describe('POST /employee/add', ()=>{
     })
 
     it('OK, creating a new employee', (done) => {
-        request(conn.app).post('/employee/add')
+        request(conn.app).post('/employee/update/:id')
             .send({employeeId: "qwe", employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesftugjhjbhmmu", employeePassword: "sefefesfnvghjb", employeemobile: "646464", employeedescription: "Sfeefs"})
             .then((res => {
                 const body = res.body;
@@ -28,7 +28,7 @@ describe('POST /employee/add', ()=>{
     })
 
     it('Fail, employee requires employee Id', (done) => {
-        request(conn.app).post('/employee/add')
+        request(conn.app).post('/employee/update/:id')
             .send({employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesf", employeePassword: "sefefesf", employeemobile: "646464", employeedescription: "Sfeefs"})
             .then((res => {
                 const body = res.body;

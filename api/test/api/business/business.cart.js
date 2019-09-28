@@ -16,7 +16,7 @@ describe('POST /business/cart', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, creating a new business product', (done) => {
+    it('OK, creating a new business cart', (done) => {
         request(conn.app).post('/business/cart')
             .send({pid: "asds", pname:"akuydyfyuawd", psprice: "5613", pqty: "45", pcategory: "augudaud", description:"iusiga", supplier:"uyasgdyda"})
             .then((res => {

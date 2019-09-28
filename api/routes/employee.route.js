@@ -24,7 +24,6 @@ employeeRoutes.route("/add").post(function(req, res) {
   // }
   return Employee.findOne({ employeeEmail: req.body.employeeEmail })
     .then(user => {
-      console.log(user)
       if (user) {
         throw new Error("User exist already");
       }
@@ -46,7 +45,7 @@ employeeRoutes.route("/add").post(function(req, res) {
       });
     })
     .catch(err => {
-      res.status(400).send("unable to save to database");
+      res.status(400).send(err);
     });
 });
 

@@ -17,8 +17,8 @@ describe('POST /employee/add', ()=>{
     })
 
     it('OK, creating a new employee', (done) => {
-        request(conn.app).post('/employee/add')
-            .send({employeeId: "qwe", employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesftugjhjbhmmu", employeePassword: "sefefesfnvghjb", employeemobile: "646464", employeedescription: "Sfeefs"})
+        request(conn.app).post('/supplier/add')
+            .send({supplierId:"weatc", supplierName:"fjkhsduk", sAddress:"dsfhbskdf", supplierEmail:"sdjkhkjdsg", suppliermobile:"03235431",supplierdescription:"sdfbdjkfbdjkf"})
             .then((res => {
                 const body = res.body;
                 expect(body).to.contain.property('employee');
@@ -28,8 +28,8 @@ describe('POST /employee/add', ()=>{
     })
 
     it('Fail, employee requires employee Id', (done) => {
-        request(conn.app).post('/employee/add')
-            .send({employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesf", employeePassword: "sefefesf", employeemobile: "646464", employeedescription: "Sfeefs"})
+        request(conn.app).post('/supplier/add')
+            .send({supplierName:"fjkhsduk", sAddress:"dsfhbskdf", supplierEmail:"sdjkhkjdsg", suppliermobile:"03235431",supplierdescription:"sdfbdjkfbdjkf"})
             .then((res => {
                 const body = res.body;
                 expect(body.errors)

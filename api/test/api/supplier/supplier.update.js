@@ -3,7 +3,7 @@ const request = require('supertest');
 
 const conn = require('../../../server');
 
-describe('POST /employee/add', ()=>{
+describe('POST /supplier/edit/:id', ()=>{
     before((done) => {
         conn.connect()
             .then(()=> done())
@@ -16,9 +16,9 @@ describe('POST /employee/add', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, creating a new employee', (done) => {
-        request(conn.app).post('/employee/add')
-            .send({employeeId: "qwe", employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesftugjhjbhmmu", employeePassword: "sefefesfnvghjb", employeemobile: "646464", employeedescription: "Sfeefs"})
+    it('OK, update a supplier', (done) => {
+        request(conn.app).post('/supplier/edit/:id')
+            .send({supplierId:"weatc", supplierName:"fjkhsduk", sAddress:"dsfhbskdf", supplierEmail:"sdjkhkjdsg", suppliermobile:"03235431",supplierdescription:"sdfbdjkfbdjkf"})
             .then((res => {
                 const body = res.body;
                 expect(body).to.contain.property('employee');
@@ -27,9 +27,9 @@ describe('POST /employee/add', ()=>{
             .catch((err) => done(err))
     })
 
-    it('Fail, employee requires employee Id', (done) => {
-        request(conn.app).post('/employee/add')
-            .send({employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesf", employeePassword: "sefefesf", employeemobile: "646464", employeedescription: "Sfeefs"})
+    it('Fail, update supplier requires supplier Id', (done) => {
+        request(conn.app).post('/supplier/edit/:id')
+            .send({ supplierName:"fjkhsduk", sAddress:"dsfhbskdf", supplierEmail:"sdjkhkjdsg", suppliermobile:"03235431",supplierdescription:"sdfbdjkfbdjkf"})
             .then((res => {
                 const body = res.body;
                 expect(body.errors)

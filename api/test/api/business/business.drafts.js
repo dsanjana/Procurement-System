@@ -16,7 +16,7 @@ describe('POST /add', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, creating a new business product', (done) => {
+    it('OK, creating a new business drafts', (done) => {
         request(conn.app).post('/business/drafts')
             .send({ pid: "asd", pname: "eaersxg", pbprice: "ghcghc", supplier: "fgdhrt"})
             .then((res => {
@@ -27,12 +27,11 @@ describe('POST /add', ()=>{
             .catch((err) => done(err))
     })
 
-    it('Fail, business requires pid', (done) => {
+    it('Fail, business  draft requires pid', (done) => {
         request(conn.app).post('/business/drafts')
             .send({pname: "eaersxg", pbprice: "ghcghc", supplier: "fgdhrt"})
             .then((res => {
                 const body = res.body;
-                console.log(body.errors)
                 expect(body.errors)
                 done();
             }))

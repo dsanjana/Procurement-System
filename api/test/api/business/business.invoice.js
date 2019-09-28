@@ -16,7 +16,7 @@ describe('POST /business/invoice', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, creating a new business product', (done) => {
+    it('OK, creating a new business invoice', (done) => {
         request(conn.app).post('/business/invoice')
             .send({pid: "asds", pname:"akuydyfyuawd", psprice: "5613", pqty: "45", pcategory: "augudaud", description:"iusiga", supplier:"uyasgdyda"})
             .then((res => {
@@ -27,7 +27,7 @@ describe('POST /business/invoice', ()=>{
             .catch((err) => done(err))
     })
 
-    it('Fail, business requires pid', (done) => {
+    it('Fail, business invoice requires pid', (done) => {
         request(conn.app).post('/business/invoice')
             .send({pid: "asds", pname:"akuydyfyuawd", psprice: "5613", pcategory: "augudaud", description:"iusiga", supplier:"uyasgdyda"})
             .then((res => {
