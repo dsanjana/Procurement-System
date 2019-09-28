@@ -4,10 +4,12 @@ const Schema = mongoose.Schema;
 // Define collection and schema for Business
 let Drafts = new Schema({
     pid: {
-        type: String
+        type: String,
+        required:  true
     },
     pname: {
-        type: String
+        type: String,
+        required:  true
     },
 
 

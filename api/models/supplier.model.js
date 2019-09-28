@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 let Supplier = new Schema({
 
     supplierId:{
-        type:String
+        type:String,
+        required:  true
     },
 
     supplierName:{
@@ -17,7 +18,8 @@ let Supplier = new Schema({
     },
 
     supplierEmail:{
-        type: String 
+        type: String,
+        required:  true
     },
 
     suppliermobile:{
