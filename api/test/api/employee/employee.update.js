@@ -3,7 +3,7 @@ const request = require('supertest');
 
 const conn = require('../../../server');
 
-describe('POST /employee/add', ()=>{
+describe('POST /employee/update/:id', ()=>{
     before((done) => {
         conn.connect()
             .then(()=> done())
@@ -16,7 +16,7 @@ describe('POST /employee/add', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, creating a new employee', (done) => {
+    it('OK, updating a employee', (done) => {
         request(conn.app).post('/employee/update/:id')
             .send({employeeId: "qwe", employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesftugjhjbhmmu", employeePassword: "sefefesfnvghjb", employeemobile: "646464", employeedescription: "Sfeefs"})
             .then((res => {
@@ -27,7 +27,7 @@ describe('POST /employee/add', ()=>{
             .catch((err) => done(err))
     })
 
-    it('Fail, employee requires employee Id', (done) => {
+    it('Fail, updating a employee requires employee Id', (done) => {
         request(conn.app).post('/employee/update/:id')
             .send({employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesf", employeePassword: "sefefesf", employeemobile: "646464", employeedescription: "Sfeefs"})
             .then((res => {

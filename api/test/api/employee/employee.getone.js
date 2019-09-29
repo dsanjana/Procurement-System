@@ -3,7 +3,7 @@ const request = require('supertest');
 
 const conn = require('../../../server');
 
-describe('POST /employee/add', ()=>{
+describe('GET /employee/edit/:id', ()=>{
     before((done) => {
         conn.connect()
             .then(()=> done())
@@ -16,8 +16,8 @@ describe('POST /employee/add', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, get all employees', (done) => {
-        request(conn.app).get('/employee/')
+    it('OK, get one employee', (done) => {
+        request(conn.app).get('/employee/edit/:id')
             .then((res => {
                 const body = res.body;
                 expect(body.length).to.equal(1)

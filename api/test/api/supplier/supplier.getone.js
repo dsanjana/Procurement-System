@@ -16,7 +16,7 @@ describe('POST /supplier/:name', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, get all employees', (done) => {
+    it('OK, get one supplier', (done) => {
         request(conn.app).get('/supplier/:name')
             .then((res => {
                 const body = res.body;

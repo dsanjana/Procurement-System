@@ -3,7 +3,7 @@ const request = require('supertest');
 
 const conn = require('../../../server');
 
-describe('POST /supplier/add', ()=>{
+describe('GET /supplier/', ()=>{
     before((done) => {
         conn.connect()
             .then(()=> done())
@@ -16,7 +16,7 @@ describe('POST /supplier/add', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, get one specific supplier', (done) => {
+    it('OK, get all suppliers', (done) => {
         request(conn.app).get('/supplier/')
             .then((res => {
                 const body = res.body;

@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cd3bafd-07fc-4550-93d9-878e17c15043" name="Default Changelist" comment="Test case added">
-      <change afterPath="$PROJECT_DIR$/api/test/api/employee/employee.getall.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/test/api/employee/employee.getone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/test/api/employee/employee.update.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/test/api/supplier/supplier.add.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/test/api/supplier/supplier.getall.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/test/api/supplier/supplier.getone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/test/api/supplier/supplier.update.js" afterDir="false" />
+    <list default="true" id="1cd3bafd-07fc-4550-93d9-878e17c15043" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/business.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/business.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/employee.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/employee.route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/test/api/business/business.cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/business/business.cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/test/api/business/business.drafts.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/business/business.drafts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/test/api/business/business.invoice.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/business/business.invoice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/test/api/employee/employee.add.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/employee/employee.add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/test/api/employee/employee.getall.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/employee/employee.getall.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/test/api/employee/employee.getone.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/employee/employee.getone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/test/api/employee/employee.update.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/employee/employee.update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/test/api/supplier/supplier.add.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/supplier/supplier.add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/test/api/supplier/supplier.getall.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/supplier/supplier.getall.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/test/api/supplier/supplier.getone.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/test/api/supplier/supplier.getone.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +137,7 @@
       <workItem from="1569522965190" duration="601000" />
       <workItem from="1569599980476" duration="12152000" />
       <workItem from="1569644210999" duration="2339000" />
-      <workItem from="1569646854483" duration="11019000" />
+      <workItem from="1569646854483" duration="12556000" />
     </task>
     <task id="LOCAL-00001" summary="Test case added">
       <created>1569608375495</created>
@@ -171,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569651302559</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Test cases fo api completed">
+      <created>1569691870641</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1569691870641</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -204,6 +207,7 @@
     <MESSAGE value="Test negative case added" />
     <MESSAGE value="Test case added for business routes" />
     <MESSAGE value="Models modified for tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Models modified for tests" />
+    <MESSAGE value="Test cases fo api completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test cases fo api completed" />
   </component>
 </project>

@@ -3,7 +3,7 @@ const request = require('supertest');
 
 const conn = require('../../../server');
 
-describe('POST /employee/add', ()=>{
+describe('POST /supplier/add', ()=>{
     before((done) => {
         conn.connect()
             .then(()=> done())
@@ -16,7 +16,7 @@ describe('POST /employee/add', ()=>{
             .catch((err)=> done(err));
     })
 
-    it('OK, creating a new employee', (done) => {
+    it('OK, creating a new  supplier', (done) => {
         request(conn.app).post('/supplier/add')
             .send({supplierId:"weatc", supplierName:"fjkhsduk", sAddress:"dsfhbskdf", supplierEmail:"sdjkhkjdsg", suppliermobile:"03235431",supplierdescription:"sdfbdjkfbdjkf"})
             .then((res => {
@@ -27,7 +27,7 @@ describe('POST /employee/add', ()=>{
             .catch((err) => done(err))
     })
 
-    it('Fail, employee requires employee Id', (done) => {
+    it('Fail, supplier requires supplier Id', (done) => {
         request(conn.app).post('/supplier/add')
             .send({supplierName:"fjkhsduk", sAddress:"dsfhbskdf", supplierEmail:"sdjkhkjdsg", suppliermobile:"03235431",supplierdescription:"sdfbdjkfbdjkf"})
             .then((res => {

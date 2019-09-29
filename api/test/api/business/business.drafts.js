@@ -3,7 +3,7 @@ const request = require('supertest');
 
 const conn = require('../../../server');
 
-describe('POST /add', ()=>{
+describe('POST /business/drafts', ()=>{
     before((done) => {
         conn.connect()
             .then(()=> done())

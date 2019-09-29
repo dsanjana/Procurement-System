@@ -18,7 +18,7 @@ describe('POST /employee/add', ()=>{
 
     it('OK, creating a new employee', (done) => {
         request(conn.app).post('/employee/add')
-            .send({employeeId: "qwe", employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesftugjhjbhmmu", employeePassword: "sefefesfnvghjb", employeemobile: "646464", employeedescription: "Sfeefs"})
+            .send({employeeId: "qwe", employeeName: "efjkeaf", empAddress: "fseefef",employeeEmail: "sfsefesftugjhjbhnhkmmu", employeePassword: "sefefesfnvghjb", employeemobile: "646464", employeedescription: "Sfeefs"})
             .then((res => {
                 const body = res.body;
                 expect(body).to.contain.property('employee');
